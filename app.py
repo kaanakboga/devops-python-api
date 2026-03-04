@@ -1,0 +1,30 @@
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return jsonify({
+        "message": "API is running"
+    })
+
+@app.route("/about")
+def about():
+    return jsonify({
+        "name": "Kaan",
+        "role": "DevOps learner",
+        "stack": "Python + Flask"
+    })
+
+@app.route("/projects")
+def projects():
+    return jsonify({
+        "projects": [
+            "Dockerized Python API",
+            "GitHub Actions CI",
+            "Kubernetes deployment"
+        ]
+    })
+
+if __name__ == "__main__":
+    app.run(debug=True)
